@@ -28,7 +28,7 @@ class SectionObject {
 class ConfigLoader {
 	/* nazev konfiguracniho souboru */
 	private $config_file = '';
-	/* zpristupneni promennych */
+	/* koren konfiguracniho souboru */
 	private $root;
 
 	public function __construct($config_file) {
