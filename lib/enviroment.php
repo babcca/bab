@@ -5,7 +5,7 @@ class Enviroment {
   public static $db;
   private static $info_msg;
   public static function __init__() {
-     self::$db = new MySql("mysql.webzdarma.cz", "testovatko", "testovatko", "t7rkue");
+    //self::$db = new MySql("mysql.webzdarma.cz", "testovatko", "testovatko", "t7rkue");
   }
   public static function get($name) {
     if (isset($_GET[$name])) return $_GET[$name];
