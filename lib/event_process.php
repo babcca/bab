@@ -1,7 +1,8 @@
-<?php
+<?php/
 
 /** 
- *	
+ *	Spostec volanych funkci, stara se o spravne volani metod
+ *	s jejich parametry a kontrolu prav k volani.
  */
 class EventProcess 
 {
@@ -19,16 +20,16 @@ class EventProcess
 	public function register_method($app, $method, $params = array(), $optParams = array(), $loginReq = false, $groupReq = '') {
 		if (!array_key_exists($method, $this->_MT_LIST)) {
 			if (!method_exists($app, $method)) throw new Exception("Trida nevlastni metodu $method");
-			$this->_MT_LIST[$method] = new process($app, $method, $params, $optParams, $loginReq, $groupReq, $app);
+			$this->_MT_LIST[$method] = new process_t($app, $method, $params, $optParams, $loginReq, $groupReq, $app);
 		} else {
 			throw new Exception("Function $method is alredy registred");
 		}
 	}
 	
 	/**
-	 *	Vytazeni strauktury ze seznamu metod
+	 *	Vytazeni struktury ze seznamu metod
 	 * 	\param $mtName nazev hledane motody
-	 * 	\return instance process() nebo null pokud nenalezeno
+	 * 	\return instance process_t() nebo null pokud nenalezeno
 	 */
 	private function get_method($mtName) {
 		if (array_key_exists($mtName, $this->_MT_LIST))
@@ -39,10 +40,10 @@ class EventProcess
 	
 	/**
 	 * 	Kontrola autorizace podle nastavenych pristupovych prav
-	 * 	\param $process instance process nalezici kontrolovane metode \see get_method()
+	 * 	\param $my_process instance process_t nalezici kontrolovane metode \see get_method()
 	 * 	\return true pri autorizaci jinak false
 	 */
-	private function autorization($process) {
+	private function autorization($my_process) {
 		if ($app->LoginReq and !Enviroment::loged()) {
 			return false;
 		}
@@ -57,14 +58,14 @@ class EventProcess
 	
 	/**
 	 *	Zalohovani post parametru metody
-	 *	\param $process instance process zalohovane metody \see get_method()
+	 *	\param $my_process instance process_t zalohovane metody \see get_method()
 	 */
-	public function backup_param($process) {
+	public function backup_param($my_process) {
 		$data = array();
-		foreach ($process->Params as $param) {
+		foreach ($my_process->Params as $param) {
 			 $data[$param] = Enviroment::post($param);
 		}
-		foreach ($process->OptParams as $param => $def) {
+		foreach ($my_process->OptParams as $param => $def) {
 				$val = Enviroment::post($param);
 				$data[$param] = $val == Null ? $def : $val;
 		}
@@ -84,19 +85,19 @@ class EventProcess
 			Enviroment::set_info("Neznama aplikace");
 			return false;
 		}
-		$process = $this->get_method($mt);
-		if ($process != null) {
+		$my_process = $this->get_method($mt);
+		if ($my_process != null) {
 			// kontrola autorizace
-			if (!$this->autorization($process)) {
+			if (!$this->autorization($my_process)) {
 				Enviroment::set_info("Musite byt prihaseni");
 				return false;
 			}
 			// zalohovani post parametru (vhodne pro formulare)
-			if ($source == "post") $this->backup_param($process);
+			if ($source == "post") $this->backup_param($my_process);
 			$params = array();
 			$i = 0;
 			// Parsovani povinnych parametru
-			foreach ($process->Params as $param) {
+			foreach ($my_process->Params as $param) {
 				$val = Enviroment::param($source, $param);
 				if ($val == null) {
 					Enviroment::set_info("Nedostatek parametru ($param)");
@@ -105,12 +106,12 @@ class EventProcess
 				$params[$i++] = $val;		
 			}
 			// Parsovani nepovinnych parametru
-			foreach ($process->OptParams as $param => $def) {
+			foreach ($my_process->OptParams as $param => $def) {
 				$val = Enviroment::param($source, $param);
 				$params[$i++] = $val == Null ? $def : $val;		
 			}
-			$obj = new $process->Class();
-			return call_user_func_array(array($obj, $process->Method), $params);
+			$obj = new $my_process->Class();
+			return call_user_func_array(array($obj, $my_process->Method), $params);
 		} else {
 			Enviroment::set_info("Neznama funkce $mt");
 			return false;
@@ -128,7 +129,7 @@ class EventProcess
 /**
  * Struktura zapouzdrujici informace o registrovane metode
  */
-class process
+class process_t
 {
 	public $Class;
 	public $Method; 
