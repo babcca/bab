@@ -12,6 +12,4 @@ Main::$application_manager->register('basic_page');
 
 /* Zobrazeni */
 echo Main::$process_manager->get_view(Main::$config->main->main_app, "main");
-
-
 ?>
