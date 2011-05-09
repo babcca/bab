@@ -19,7 +19,8 @@ class SectionObject {
 	 */
 	public function __get($option) {
 		if (array_key_exists($option, $this->section)) {
-			return new SectionObject($this->section[$option]);
+			if (is_array($this->section[$option])) return new SectionObject($this->section[$option]);
+			else return $this->section[$option];
 		}
 		return null;
 	}
