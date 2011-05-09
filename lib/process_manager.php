@@ -36,8 +36,8 @@ class ProcessManager {
 	 *	\return Vygenerovany pohled
 	 */
 	public function process_get() {
-		$g_app = Enviroment::get("app")
-		$g_mt = Enviroment::get("method")
+		$g_app = Enviroment::get("app");
+		$g_mt = Enviroment::get("method");
 		if ($g_app == null) $g_app = Main::$config->main->default_app;
 		if ($g_view == null) $g_view = Main::$config->main->default_view;
 		return $this->view->process($g_app, $g_mt, "get");
