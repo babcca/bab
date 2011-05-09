@@ -1,7 +1,7 @@
-<?php/
+<?php
 
 /** 
- *	Spostec volanych funkci, stara se o spravne volani metod
+ *	Spoustec volanych funkci, stara se o spravne volani metod
  *	s jejich parametry a kontrolu prav k volani.
  */
 class EventProcess 
