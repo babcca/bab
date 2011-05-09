@@ -19,7 +19,7 @@ class EventProcess
 	 */
 	public function register_method($app, $method, $params = array(), $optParams = array(), $loginReq = false, $groupReq = '') {
 		if (!array_key_exists($method, $this->_MT_LIST)) {
-			if (!method_exists($app, $method)) throw new Exception("Trida nevlastni metodu $method");
+			if (!method_exists($app, $method)) throw new Exception("Trida $app nevlastni metodu $method");
 			$this->_MT_LIST[$method] = new process_t($app, $method, $params, $optParams, $loginReq, $groupReq, $app);
 		} else {
 			throw new Exception("Function $method is alredy registred");
@@ -44,7 +44,7 @@ class EventProcess
 	 * 	\return true pri autorizaci jinak false
 	 */
 	private function autorization($my_process) {
-		if ($app->LoginReq and !Enviroment::loged()) {
+		if ($my_process->LoginReq and !Enviroment::loged()) {
 			return false;
 		}
 		return true;
