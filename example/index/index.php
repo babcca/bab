@@ -1,11 +1,17 @@
 <?php
+/**
+ *	Klasicky entry point pro vetsinu html stranek
+ */
 
 class index {
 	private $render;
 	public function __construct() {
 		$this->render = new Render('index');
 	}
-	
+	/**
+	 *	Spusteni hlavniho programu, kazdy entry point musi mit tuto metodu
+	 *	\return Vygenerovana cela html stranka (jak je to s velkym mnozstvim dat?)
+	 */
 	public function main($charset) {
 		header("Content-type: text/html; charset=$charset");
 		$content = Main::$process_manager->process();
@@ -19,6 +25,7 @@ class index {
 			}
 */		}
 		$this->render->assign("title", Enviroment::get_title());
+		$this->render->assign("charset", $charset);
 		$this->render->assign("content", $content);
 		$this->render->assign("info", Enviroment::get_info());
 		$this->render->assign("loged", Enviroment::loged());
