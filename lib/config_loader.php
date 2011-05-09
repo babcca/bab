@@ -1,5 +1,5 @@
 <?php
-/* 
+/** 
  * Reprezentace jednotlivych sekci
  * umoznuje pristup k promennym sekce za pomoci 
  * operatoru ->
@@ -13,6 +13,10 @@ class SectionObject {
 		if (!is_array($this->section)) return $this->section;
 		else return print_r($this->section, true);
 	}
+	/**
+	 * Predefinovani operatoru ->
+	 * \param $option prava strana ->
+	 */
 	public function __get($option) {
 		if (array_key_exists($option, $this->section)) {
 			return new SectionObject($this->section[$option]);
@@ -20,8 +24,8 @@ class SectionObject {
 		return null;
 	}
 }
-/*
- * Naciteni konfiguracniho souboru,
+/**
+ * Nacteni konfiguracniho souboru,
  * poskytuje primi pristup k promennym za pomoci operatoru ->
  */
 
@@ -37,7 +41,10 @@ class ConfigLoader {
 			$this->root = new SectionObject(parse_ini_file($this->config_file, true));
 		}
 	}
-	
+	/**
+	 * Predefinovani operatoru ->
+	 * \param $option prava strana ->
+	 */
 	public function __get($option) {
 		return $this->root->$option;
 	}
