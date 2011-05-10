@@ -140,13 +140,13 @@ class Enviroment {
 	 *	\return Ulozena data array(errmsg, errno);
 	 */
 	public static function get_error() {
-		$info = array("", -1);
-		if(isset($_SESSION["__errormsg"])) $info[0] = $_SESSION["__errormsg"];
-		if(isset($_SESSION["__errorno"])) $info[1] = $_SESSION["__errorno"];
+		$info = false;
+		if(isset($_SESSION["__errormsg"])) $info = array($_SESSION["__errormsg"], $_SESSION["__errorno"]);
 		unset($_SESSION["__errormsg"]);
 		unset($_SESSION["__errorno"]);
 		return $info;
 	}
+
 	/**
 	 *	Nastaveni titulku okna
 	 *	\param $title Titulek okna
