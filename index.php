@@ -11,5 +11,10 @@ Main::$application_manager->register('index');
 Main::$application_manager->register('basic_page');
 
 /* Zobrazeni */
-echo Main::$process_manager->get_view(Main::$config->main->main_app, "main");
+try {
+	echo Main::$process_manager->get_view(Main::$config->main->main_app, "main");
+} catch (Exception $e) {
+	echo "Exception: ". $e->getMessage() ."\n";
+}
+
 ?>
