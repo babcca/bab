@@ -1,5 +1,9 @@
 <?php
 
+define("UNKNOWN_APP", 1);
+define("NEED_LOGIN", 2);
+define("UNKNOWN_METHOD", 3);
+define("EXCEPTED_PARAM", 4);
 /** 
  *	Spoustec volanych funkci, stara se o spravne volani metod
  *	s jejich parametry a kontrolu prav k volani.
@@ -82,14 +86,14 @@ class EventProcess
 	public function process($app, $mt, $source) {
 		// importovani aplikace
 		if (!Main::$application_manager->import($app)) {
-			Enviroment::set_info("Neznama aplikace");
+			Enviroment::set_error("Neznama aplikace", UNKNOWN_APP);
 			return false;
 		}
 		$my_process = $this->get_method($mt);
 		if ($my_process != null) {
 			// kontrola autorizace
 			if (!$this->autorization($my_process)) {
-				Enviroment::set_info("Musite byt prihaseni");
+				Enviroment::set_error("Musite byt prihaseni", NEED_LOGIN);
 				return false;
 			}
 			// zalohovani post parametru (vhodne pro formulare)
@@ -100,7 +104,7 @@ class EventProcess
 			foreach ($my_process->Params as $param) {
 				$val = Enviroment::param($source, $param);
 				if ($val == null) {
-					Enviroment::set_info("Nedostatek parametru ($param)");
+					Enviroment::set_error("Nedostatek parametru ($param)", EXCEPTED_PARAM);
 					return false;
 				}
 				$params[$i++] = $val;		
@@ -113,7 +117,7 @@ class EventProcess
 			$obj = new $my_process->Class();
 			return call_user_func_array(array($obj, $my_process->Method), $params);
 		} else {
-			Enviroment::set_info("Neznama funkce $mt");
+			Enviroment::set_error("Neznama metoda $mt", UNKNOWN_METHOD);
 			return false;
 		}
 	}
