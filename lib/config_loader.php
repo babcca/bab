@@ -40,6 +40,8 @@ class ConfigLoader {
 		$this->config_file = $config_file;
 		if (file_exists($this->config_file)) {
 			$this->root = new SectionObject(parse_ini_file($this->config_file, true));
+		} else {
+			throw new Exception("Config file {$this->config_file} not found");
 		}
 	}
 	/**

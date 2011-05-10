@@ -13,7 +13,7 @@ class Render extends Smarty {
 	 */
 	public function __construct($folder) {
 		parent::__construct();
-		$this->application = Main::$config->main->app_dir.'/'.$folder.'/templates';
+		$this->application = dirname(__file__)."/".Main::$config->main->app_dir.'/'.$folder.'/templates';
 		$this->template_dir = $this->application.'/templates';
 		$this->compile_dir =$this->application.'/templates_c';
 		$this->config_dir = $this->application.'/configs';
