@@ -24,6 +24,7 @@ class index {
 				$content = Main::$process_manager->get_view("prihlaseni", "formular");
 			}
 */		}
+
 		$this->render->assign("title", Enviroment::get_title());
 		$this->render->assign("charset", $charset);
 		$this->render->assign("content", $content);
