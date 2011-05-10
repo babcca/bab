@@ -112,7 +112,7 @@ class Enviroment {
 	 *	vhodne pro vypisovani informacnich hlasek z aplikace
 	 *	\param $info Ukladane informace
 	 */
-	public static function set_info($info) { $_SESSION["info"] = $info; }
+	public static function set_info($info) { $_SESSION["__info"] = $info; }
 	
 	/**
 	 *	Ziskani ulozene informace z perzistentniho uloziste
@@ -120,11 +120,33 @@ class Enviroment {
 	 */
 	public static function get_info() {
 		$info = "";
-		if(isset($_SESSION["info"])) $info = $_SESSION["info"]; 
-		unset($_SESSION["info"]);
+		if(isset($_SESSION["__info"])) $info = $_SESSION["__info"]; 
+		unset($_SESSION["__info"]);
 		return $info;
 	}
-
+	/**
+	 *	Ulozeni informace o chybe do perzistentniho uloziste, 
+	 *	vhodne pro vypisovani informacnich hlasek z aplikace
+	 *	\param $info Ukladane informace
+	 *	\param $id Id chyby
+	 */
+	public static function set_error($info, $id) { 
+		$_SESSION["__errormsg"] = $info; 
+		$_SESSION["__errorno"] = $id;
+	}
+	
+	/**
+	 *	Ziskani ulozene informace o chybe z perzistentniho uloziste
+	 *	\return Ulozena data array(errmsg, errno);
+	 */
+	public static function get_error() {
+		$info = array("", -1);
+		if(isset($_SESSION["__errormsg"])) $info[0] = $_SESSION["__errormsg"];
+		if(isset($_SESSION["__errorno"])) $info[1] = $_SESSION["__errorno"];
+		unset($_SESSION["__errormsg"]);
+		unset($_SESSION["__errorno"]);
+		return $info;
+	}
 	/**
 	 *	Nastaveni titulku okna
 	 *	\param $title Titulek okna
