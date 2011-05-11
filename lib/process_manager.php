@@ -47,6 +47,7 @@ class ProcessManager {
 	/**
 	 *	Automaticke zpracovani pozadavku, rozhoduje se podle REQUEST_METHOD.
 	 *	\param post_redirect ma-li se po post pozadvku presmerovat na sebe sama a vyprazdnit POST
+	 *	\return Navratova hodnota z vykonanych procesu
 	 */
 	public function process($post_redirect = true) {
 		$content = false;
