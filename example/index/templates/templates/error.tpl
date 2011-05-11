@@ -4,9 +4,8 @@
 	<title>{$title}</title>
 </head>
 <body>
-Me telicko :)
-<div id="content">
-{$content}
+<div id="error">
+	<span><b>{$error[0]}</b> [errno. {$error[1]}]</span>
 </div>
 </body>
 </html>
