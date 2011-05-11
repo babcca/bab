@@ -49,12 +49,14 @@ class ProcessManager {
 	 *	\param post_redirect ma-li se po post pozadvku presmerovat na sebe sama a vyprazdnit POST
 	 */
 	public function process($post_redirect = true) {
+		$content = false;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$this->process_post();
+			$content = $this->process_post();
 			if ($post_redirect) Enviroment::redirect($_SERVER['REQUEST_URI']);
 		} else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-			return $this->process_get();
+			$content = $this->process_get();
 		}
+		return $content;
 	}	
 	
 	/**
