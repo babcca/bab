@@ -41,7 +41,6 @@ class ProcessManager {
 		if ($g_app == null) $g_app = Main::$config->main->default_app;
 		if ($g_mt == null) $g_mt = Main::$config->main->default_view;
 		return $this->view->process($g_app, $g_mt, "get");
-		
 	}
 
 	/**

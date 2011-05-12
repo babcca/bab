@@ -11,9 +11,9 @@ class AjaxEntry implements IEntrypoint {
 	public function main() {
 		$content = Main::$process_manager->process(false);
 		if (!$content) {
-			return $this->on_error($charset);
+			return $this->on_error();
 		} else {
-			return $this->on_succes($charset, $content);
+			return $this->on_succes($content);
 		}
 	}
 
@@ -21,8 +21,8 @@ class AjaxEntry implements IEntrypoint {
 		return json_encode(Enviroment::get_error());	
 	}
 
-	public function on_succes($charset, $content) {
-		return $this->render->show('index');
+	public function on_succes($content) {
+		return $content;
 	}
 }
 ?>

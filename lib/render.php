@@ -19,6 +19,7 @@ class Render extends Smarty {
 		$this->config_dir = $this->application.'/configs';
 		$this->cache_dir = $this->application.'/cache';
 		$this->registerPlugin("function", "before_time", "Render::get_before_time");
+		$this->registerPlugin("function", "make_url", "Render::get_link_url");
 	}
 
 	/**
@@ -31,6 +32,12 @@ class Render extends Smarty {
 		return '';
 	}
 
+	public static function get_link_url($param, $smarty) {
+		$app = $param["app"];
+		$method = $param["method"];
+		$argm = $param["argm"];
+		return Enviroment::make_url($app, $method, $argm);
+	}
 	public static function get_before_time($params, $smarty) {
 		$r = array();
 		$r["s"] = (int) time() - $params["time"];
@@ -48,8 +55,8 @@ class Render extends Smarty {
 			if ($r["m"] == 1) return "minutou";
 			else return $r["m"]." minutami";
 		} else 	if ($r["s"] != 0) {
-			if ($r["s"] == 1) return "vterinou";
-			else return $r["s"]." vterinami";
+			if ($r["s"] == 1) return "sekundou";
+			else return $r["s"]." sekundami";
 		} 
 		
 	}
