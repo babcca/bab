@@ -8,7 +8,7 @@ Main::__init__('config.ini');
 
 /* Registrace aplikaci */
 Main::$application_manager->register('index');
-Main::$application_manager->register('basic_page');
+Main::$application_manager->register('sell');
 
 /* Zobrazeni */
 try {
