@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>babyka: Zdrojový soubor lib/event_process.php</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generováno programem Doxygen 1.7.3 -->
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">babyka&#160;<span id="projectnumber">0.1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="../../annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Soubory</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Seznam&#160;souborů</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>lib/event_process.php</h1>  </div>
+</div>
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 
+<a name="l00007"></a><a class="code" href="../../dd/d6d/class_event_process.html">00007</a> <span class="keyword">class </span><a class="code" href="../../dd/d6d/class_event_process.html">EventProcess</a> 
+<a name="l00008"></a>00008 {
+<a name="l00009"></a><a class="code" href="../../dd/d6d/class_event_process.html#a30fc8d134112b547007246d1f3191956">00009</a>         <span class="keyword">private</span> <a class="code" href="../../dd/d6d/class_event_process.html#a30fc8d134112b547007246d1f3191956">$_MT_LIST</a> = array(); 
+<a name="l00020"></a><a class="code" href="../../dd/d6d/class_event_process.html#a8c558386ab81efbc2250601509d3f330">00020</a>         <span class="keyword">public</span> function <a class="code" href="../../dd/d6d/class_event_process.html#a8c558386ab81efbc2250601509d3f330">register_method</a>($app, $method, $params = array(), $optParams = array(), $loginReq = <span class="keyword">false</span>, $groupReq = <span class="stringliteral">&#39;&#39;</span>) {
+<a name="l00021"></a>00021                 <span class="keywordflow">if</span> (!array_key_exists($method, $this-&gt;_MT_LIST)) {
+<a name="l00022"></a>00022                         <span class="keywordflow">if</span> (!method_exists($app, $method)) <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Trida $app nevlastni metodu $method&quot;</span>);
+<a name="l00023"></a>00023                         $this-&gt;_MT_LIST[$method] = <span class="keyword">new</span> <a class="code" href="../../d9/de3/classprocess__t.html">process_t</a>($app, $method, $params, $optParams, $loginReq, $groupReq, $app);
+<a name="l00024"></a>00024                 } <span class="keywordflow">else</span> {
+<a name="l00025"></a>00025                         <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Function $method is alredy registred&quot;</span>);
+<a name="l00026"></a>00026                 }
+<a name="l00027"></a>00027         }
+<a name="l00028"></a>00028         
+<a name="l00034"></a><a class="code" href="../../dd/d6d/class_event_process.html#a0ece86e69e3589234152779f76c48cf4">00034</a>         <span class="keyword">private</span> function <a class="code" href="../../dd/d6d/class_event_process.html#a0ece86e69e3589234152779f76c48cf4">get_method</a>($mtName) {
+<a name="l00035"></a>00035                 <span class="keywordflow">if</span> (array_key_exists($mtName, $this-&gt;_MT_LIST))
+<a name="l00036"></a>00036                         <span class="keywordflow">return</span> $this-&gt;_MT_LIST[$mtName];
+<a name="l00037"></a>00037                 <span class="keywordflow">else</span>
+<a name="l00038"></a>00038                         <span class="keywordflow">return</span> null;
+<a name="l00039"></a>00039         }
+<a name="l00040"></a>00040         
+<a name="l00046"></a><a class="code" href="../../dd/d6d/class_event_process.html#ac4ea9b73a44792195fcd2b2474689a80">00046</a>         <span class="keyword">private</span> function <a class="code" href="../../dd/d6d/class_event_process.html#ac4ea9b73a44792195fcd2b2474689a80">autorization</a>($my_process) {
+<a name="l00047"></a>00047                 <span class="keywordflow">if</span> ($my_process-&gt;LoginReq and !<a class="code" href="../../d0/d68/class_enviroment.html#afcb7f79a66f29e149a03632cf38ef3f5">Enviroment::loged</a>()) {
+<a name="l00048"></a>00048                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00049"></a>00049                 }
+<a name="l00050"></a>00050                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00051"></a>00051                 <span class="comment">//if ($app-&gt;GroupReq != false) {</span>
+<a name="l00052"></a>00052                 <span class="comment">//      foreach(Enviroment::SGGet(&quot;USER&quot;, &quot;Group&quot;) as $g) {</span>
+<a name="l00053"></a>00053                 <span class="comment">//              if (!in_array($g, $app-&gt;GroupReq))</span>
+<a name="l00054"></a>00054                 <span class="comment">//                      throw new UnautorizedExecution(__class__, __method__, Config::$ExceptionStrings[1]); </span>
+<a name="l00055"></a>00055                 <span class="comment">//      }</span>
+<a name="l00056"></a>00056                 <span class="comment">//}                     </span>
+<a name="l00057"></a>00057         }
+<a name="l00058"></a>00058         
+<a name="l00063"></a><a class="code" href="../../dd/d6d/class_event_process.html#a03dcb452968f505eb35c6610abe6a5da">00063</a>         <span class="keyword">public</span> function <a class="code" href="../../dd/d6d/class_event_process.html#a03dcb452968f505eb35c6610abe6a5da">backup_param</a>($my_process) {
+<a name="l00064"></a>00064                 $data = array();
+<a name="l00065"></a>00065                 <span class="keywordflow">foreach</span> ($my_process-&gt;Params as $param) {
+<a name="l00066"></a>00066                          $data[$param] = <a class="code" href="../../d0/d68/class_enviroment.html#a9b633fbbb569834100dccbd3d832bb45">Enviroment::post</a>($param);
+<a name="l00067"></a>00067                 }
+<a name="l00068"></a>00068                 <span class="keywordflow">foreach</span> ($my_process-&gt;OptParams as $param =&gt; $def) {
+<a name="l00069"></a>00069                                 $val = <a class="code" href="../../d0/d68/class_enviroment.html#a9b633fbbb569834100dccbd3d832bb45">Enviroment::post</a>($param);
+<a name="l00070"></a>00070                                 $data[$param] = $val == Null ? $def : $val;
+<a name="l00071"></a>00071                 }
+<a name="l00072"></a>00072                 <a class="code" href="../../d0/d68/class_enviroment.html#af79b3de3d509e8875948d94dfe6a821d">Enviroment::set_form_data</a>($data);
+<a name="l00073"></a>00073         }       
+<a name="l00074"></a>00074 
+<a name="l00082"></a><a class="code" href="../../dd/d6d/class_event_process.html#ab62e0a2781bf14f517b477ba9e0c1823">00082</a>         <span class="keyword">public</span> function <a class="code" href="../../dd/d6d/class_event_process.html#ab62e0a2781bf14f517b477ba9e0c1823">process</a>($app, $mt, $source) {
+<a name="l00083"></a>00083                 <span class="comment">// importovani aplikace</span>
+<a name="l00084"></a>00084                 <span class="keywordflow">if</span> (!<a class="code" href="../../d0/d4b/class_main.html#a226653ce4269985e25046dd5d575dd71">Main::$application_manager</a>-&gt;<span class="keyword">import</span>($app)) {
+<a name="l00085"></a>00085                         <a class="code" href="../../d0/d68/class_enviroment.html#aa9cd46e2c4da7faef2c096301e82f304">Enviroment::set_info</a>(<span class="stringliteral">&quot;Neznama aplikace&quot;</span>);
+<a name="l00086"></a>00086                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00087"></a>00087                 }
+<a name="l00088"></a>00088                 $my_process = $this-&gt;<a class="code" href="../../dd/d6d/class_event_process.html#a0ece86e69e3589234152779f76c48cf4">get_method</a>($mt);
+<a name="l00089"></a>00089                 <span class="keywordflow">if</span> ($my_process != null) {
+<a name="l00090"></a>00090                         <span class="comment">// kontrola autorizace</span>
+<a name="l00091"></a>00091                         <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../dd/d6d/class_event_process.html#ac4ea9b73a44792195fcd2b2474689a80">autorization</a>($my_process)) {
+<a name="l00092"></a>00092                                 <a class="code" href="../../d0/d68/class_enviroment.html#aa9cd46e2c4da7faef2c096301e82f304">Enviroment::set_info</a>(<span class="stringliteral">&quot;Musite byt prihaseni&quot;</span>);
+<a name="l00093"></a>00093                                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00094"></a>00094                         }
+<a name="l00095"></a>00095                         <span class="comment">// zalohovani post parametru (vhodne pro formulare)</span>
+<a name="l00096"></a>00096                         <span class="keywordflow">if</span> ($source == <span class="stringliteral">&quot;post&quot;</span>) $this-&gt;<a class="code" href="../../dd/d6d/class_event_process.html#a03dcb452968f505eb35c6610abe6a5da">backup_param</a>($my_process);
+<a name="l00097"></a>00097                         $params = array();
+<a name="l00098"></a>00098                         $i = 0;
+<a name="l00099"></a>00099                         <span class="comment">// Parsovani povinnych parametru</span>
+<a name="l00100"></a>00100                         <span class="keywordflow">foreach</span> ($my_process-&gt;Params as $param) {
+<a name="l00101"></a>00101                                 $val = <a class="code" href="../../d0/d68/class_enviroment.html#ad553bc62f96209dee25a155d9c603d2e">Enviroment::param</a>($source, $param);
+<a name="l00102"></a>00102                                 <span class="keywordflow">if</span> ($val == null) {
+<a name="l00103"></a>00103                                         <a class="code" href="../../d0/d68/class_enviroment.html#aa9cd46e2c4da7faef2c096301e82f304">Enviroment::set_info</a>(<span class="stringliteral">&quot;Nedostatek parametru ($param)&quot;</span>);
+<a name="l00104"></a>00104                                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00105"></a>00105                                 }
+<a name="l00106"></a>00106                                 $params[$i++] = $val;           
+<a name="l00107"></a>00107                         }
+<a name="l00108"></a>00108                         <span class="comment">// Parsovani nepovinnych parametru</span>
+<a name="l00109"></a>00109                         <span class="keywordflow">foreach</span> ($my_process-&gt;OptParams as $param =&gt; $def) {
+<a name="l00110"></a>00110                                 $val = <a class="code" href="../../d0/d68/class_enviroment.html#ad553bc62f96209dee25a155d9c603d2e">Enviroment::param</a>($source, $param);
+<a name="l00111"></a>00111                                 $params[$i++] = $val == Null ? $def : $val;             
+<a name="l00112"></a>00112                         }
+<a name="l00113"></a>00113                         $obj = <span class="keyword">new</span> $my_process-&gt;Class();
+<a name="l00114"></a>00114                         <span class="keywordflow">return</span> call_user_func_array(array($obj, $my_process-&gt;Method), $params);
+<a name="l00115"></a>00115                 } <span class="keywordflow">else</span> {
+<a name="l00116"></a>00116                         <a class="code" href="../../d0/d68/class_enviroment.html#aa9cd46e2c4da7faef2c096301e82f304">Enviroment::set_info</a>(<span class="stringliteral">&quot;Neznama funkce $mt&quot;</span>);
+<a name="l00117"></a>00117                         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00118"></a>00118                 }
+<a name="l00119"></a>00119         }
+<a name="l00120"></a>00120         
+<a name="l00124"></a><a class="code" href="../../dd/d6d/class_event_process.html#ac2212fc9eae6892013622ef63baefede">00124</a>         <span class="keyword">public</span> function <a class="code" href="../../dd/d6d/class_event_process.html#ac2212fc9eae6892013622ef63baefede">_debug</a>() {
+<a name="l00125"></a>00125                 var_dump($this-&gt;_MT_LIST);
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127 }
+<a name="l00128"></a>00128 
+<a name="l00132"></a><a class="code" href="../../d9/de3/classprocess__t.html">00132</a> <span class="keyword">class </span><a class="code" href="../../d9/de3/classprocess__t.html">process_t</a>
+<a name="l00133"></a>00133 {
+<a name="l00134"></a>00134         <span class="keyword">public</span> $Class;
+<a name="l00135"></a>00135         <span class="keyword">public</span> $Method; 
+<a name="l00136"></a>00136         <span class="keyword">public</span> $Params;
+<a name="l00137"></a>00137         <span class="keyword">public</span> $OptParams;
+<a name="l00138"></a>00138         <span class="keyword">public</span> $ParamsCount;
+<a name="l00139"></a>00139         <span class="keyword">public</span> $LoginReq;
+<a name="l00140"></a>00140         <span class="keyword">public</span> $GroupReq;
+<a name="l00141"></a>00141         <span class="keyword">public</span> $AppName;
+<a name="l00142"></a>00142                 
+<a name="l00143"></a>00143         <span class="keyword">public</span> function __construct($class, $method, $params, $optParams, $loginReq, $groupReq, $appName)
+<a name="l00144"></a>00144         {
+<a name="l00145"></a>00145                 $this-&gt;Class = $class;
+<a name="l00146"></a>00146                 $this-&gt;Method = $method;
+<a name="l00147"></a>00147                 $this-&gt;Params = $params;
+<a name="l00148"></a>00148                 $this-&gt;OptParams = $optParams;
+<a name="l00149"></a>00149                 $this-&gt;ParamsCount = count($params);
+<a name="l00150"></a>00150                 $this-&gt;LoginReq = $loginReq;
+<a name="l00151"></a>00151                 $this-&gt;GroupReq = $groupReq;
+<a name="l00152"></a>00152                 $this-&gt;AppName = $appName;
+<a name="l00153"></a>00153         }
+<a name="l00154"></a>00154 }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 ?&gt;
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Generováno út 10. kvě 2011 18.15:00 pro projekt babyka programem&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

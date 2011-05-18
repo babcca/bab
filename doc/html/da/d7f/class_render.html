@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>babyka: Dokumentace třídy Render</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generováno programem Doxygen 1.7.3 -->
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">babyka&#160;<span id="projectnumber">0.1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Třídy</span></a></li>
+      <li><a href="../../files.html"><span>Soubory</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Datové&#160;struktury</span></a></li>
+      <li><a href="../../classes.html"><span>Rejstřík&#160;datových&#160;struktur</span></a></li>
+      <li><a href="../../functions.html"><span>Datové&#160;položky</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Veřejné metody</a> &#124;
+<a href="#pri-attribs">Privátní atributy</a>  </div>
+  <div class="headertitle">
+<h1>Dokumentace třídy Render</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Render" --><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Veřejné metody</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d7f/class_render.html#aac49be202f083497f38999d0999ccf8d">__construct</a> ($folder)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d7f/class_render.html#a5a6191978413e12a554682ebdc2aa624">show</a> ($view)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Privátní atributy</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d7f/class_render.html#a537fa9b460dddc2a67074faab810398a">$application</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Detailní popis</h2>
+<div class="textblock"><p><a class="el" href="../../da/d7f/class_render.html">Render</a> pro aplikace (smarty) Slouzi pro vykresleni view casti aplikace </p>
+
+<p>Definice je uvedena na řádku <a class="el" href="../../d1/d0e/render_8php_source.html#l00008">8</a> v souboru <a class="el" href="../../d1/d0e/render_8php_source.html">render.php</a>.</p>
+</div><hr/><h2>Dokumentace konstruktoru a destruktoru</h2>
+<a class="anchor" id="aac49be202f083497f38999d0999ccf8d"></a><!-- doxytag: member="Render::__construct" ref="aac49be202f083497f38999d0999ccf8d" args="($folder)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__construct </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>folder</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Inicializace smarty, kazda aplikace ma svoji slozku pro templaty </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$folder</td><td>Slozka aplikace, kde je umistena slozka template se smarty strukturou </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definice je uvedena na řádku <a class="el" href="../../d1/d0e/render_8php_source.html#l00014">14</a> v souboru <a class="el" href="../../d1/d0e/render_8php_source.html">render.php</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentace k metodám</h2>
+<a class="anchor" id="a5a6191978413e12a554682ebdc2aa624"></a><!-- doxytag: member="Render::show" ref="a5a6191978413e12a554682ebdc2aa624" args="($view)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">show </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Vykresleni templatu ze slozky apliakce </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$view</td><td>Nazev templatu (bez koncovky .tpl) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definice je uvedena na řádku <a class="el" href="../../d1/d0e/render_8php_source.html#l00027">27</a> v souboru <a class="el" href="../../d1/d0e/render_8php_source.html">render.php</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentace k položkám</h2>
+<a class="anchor" id="a537fa9b460dddc2a67074faab810398a"></a><!-- doxytag: member="Render::$application" ref="a537fa9b460dddc2a67074faab810398a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$application<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Slozka plikace </p>
+
+<p>Definice je uvedena na řádku <a class="el" href="../../d1/d0e/render_8php_source.html#l00009">9</a> v souboru <a class="el" href="../../d1/d0e/render_8php_source.html">render.php</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentace pro tuto třídu byla generována z následujícího souboru:<ul>
+<li>lib/<a class="el" href="../../d1/d0e/render_8php_source.html">render.php</a></li>
+</ul>
+</div>
+<hr class="footer"/><address class="footer"><small>Generováno út 10. kvě 2011 18.15:00 pro projekt babyka programem&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

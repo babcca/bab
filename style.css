@@ -1,0 +1,39 @@
+body {
+	width: 700px;
+}
+
+#tab-box {
+	width: 100%;
+	margin: 10px 10px 10px 0px;
+}
+
+#tab-navigation {
+	margin: 0;
+	padding: 0;
+	height: 25px;
+	line-height: 24px;
+}
+
+#tab-navigation li {
+	float: left;
+	margin: 0;
+	padding: 0 15px;
+	border: 1px #000 solid;
+	border-bottom: none;
+	height: 24px;
+	width: auto;
+	text-align: center;
+	background: #fff;
+}
+
+#tab-box-content {
+	width: 100%;
+	height: auto;
+	border: 1px #000 solid;
+}
+
+.tab-content {
+	width: 100%;
+	height: auto;
+	display: none;
+}

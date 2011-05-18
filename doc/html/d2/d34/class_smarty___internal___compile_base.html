@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>babyka: Dokumentace třídy Smarty_Internal_CompileBase</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generováno programem Doxygen 1.7.3 -->
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">babyka&#160;<span id="projectnumber">0.1.0</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="../../pages.html"><span>Ostatní&#160;stránky</span></a></li>
+      <li><a href="../../namespaces.html"><span>Prostory&#160;jmen</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Třídy</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Datové&#160;struktury</span></a></li>
+      <li><a href="../../classes.html"><span>Rejstřík&#160;datových&#160;struktur</span></a></li>
+      <li><a href="../../hierarchy.html"><span>Hierarchie&#160;tříd</span></a></li>
+      <li><a href="../../functions.html"><span>Datové&#160;položky</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Veřejné metody</a> &#124;
+<a href="#pub-attribs">Datové položky</a>  </div>
+  <div class="headertitle">
+<h1>Dokumentace třídy Smarty_Internal_CompileBase</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Smarty_Internal_CompileBase" --><div class="dynheader">
+Diagram dědičnosti pro třídu Smarty_Internal_CompileBase</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="../../d2/d34/class_smarty___internal___compile_base.png" usemap="#Smarty_Internal_CompileBase_map" alt=""/>
+  <map id="Smarty_Internal_CompileBase_map" name="Smarty_Internal_CompileBase_map">
+<area href="../../d9/dfb/class_smarty___internal___compile___assign.html" alt="Smarty_Internal_Compile_Assign" shape="rect" coords="347,56,684,80"/>
+<area href="../../d6/de4/class_smarty___internal___compile___block.html" alt="Smarty_Internal_Compile_Block" shape="rect" coords="347,112,684,136"/>
+<area href="../../dc/d43/class_smarty___internal___compile___blockclose.html" alt="Smarty_Internal_Compile_Blockclose" shape="rect" coords="347,168,684,192"/>
+<area href="../../d2/df7/class_smarty___internal___compile___break.html" alt="Smarty_Internal_Compile_Break" shape="rect" coords="347,224,684,248"/>
+<area href="../../dc/d06/class_smarty___internal___compile___call.html" alt="Smarty_Internal_Compile_Call" shape="rect" coords="347,280,684,304"/>
+<area href="../../d1/dc4/class_smarty___internal___compile___capture.html" alt="Smarty_Internal_Compile_Capture" shape="rect" coords="347,336,684,360"/>
+<area href="../../d8/dca/class_smarty___internal___compile___capture_close.html" alt="Smarty_Internal_Compile_CaptureClose" shape="rect" coords="347,392,684,416"/>
+<area href="../../d1/df5/class_smarty___internal___compile___config___load.html" alt="Smarty_Internal_Compile_Config_Load" shape="rect" coords="347,448,684,472"/>
+<area href="../../dd/d9a/class_smarty___internal___compile___continue.html" alt="Smarty_Internal_Compile_Continue" shape="rect" coords="347,504,684,528"/>
+<area href="../../d0/da1/class_smarty___internal___compile___debug.html" alt="Smarty_Internal_Compile_Debug" shape="rect" coords="347,560,684,584"/>
+<area href="../../dc/d4c/class_smarty___internal___compile___else.html" alt="Smarty_Internal_Compile_Else" shape="rect" coords="347,616,684,640"/>
+<area href="../../d9/d38/class_smarty___internal___compile___elseif.html" alt="Smarty_Internal_Compile_Elseif" shape="rect" coords="347,672,684,696"/>
+<area href="../../d8/dd2/class_smarty___internal___compile___eval.html" alt="Smarty_Internal_Compile_Eval" shape="rect" coords="347,728,684,752"/>
+<area href="../../d1/d72/class_smarty___internal___compile___extends.html" alt="Smarty_Internal_Compile_Extends" shape="rect" coords="347,784,684,808"/>
+<area href="../../db/d4d/class_smarty___internal___compile___for.html" alt="Smarty_Internal_Compile_For" shape="rect" coords="347,840,684,864"/>
+<area href="../../df/df8/class_smarty___internal___compile___forclose.html" alt="Smarty_Internal_Compile_Forclose" shape="rect" coords="347,896,684,920"/>
+<area href="../../d0/df3/class_smarty___internal___compile___foreach.html" alt="Smarty_Internal_Compile_Foreach" shape="rect" coords="347,952,684,976"/>
+<area href="../../d1/d2f/class_smarty___internal___compile___foreachclose.html" alt="Smarty_Internal_Compile_Foreachclose" shape="rect" coords="347,1008,684,1032"/>
+<area href="../../d6/d5b/class_smarty___internal___compile___foreachelse.html" alt="Smarty_Internal_Compile_Foreachelse" shape="rect" coords="347,1064,684,1088"/>
+<area href="../../d1/d81/class_smarty___internal___compile___forelse.html" alt="Smarty_Internal_Compile_Forelse" shape="rect" coords="347,1120,684,1144"/>
+<area href="../../dc/dbd/class_smarty___internal___compile___function.html" alt="Smarty_Internal_Compile_Function" shape="rect" coords="347,1176,684,1200"/>
+<area href="../../d2/d38/class_smarty___internal___compile___functionclose.html" alt="Smarty_Internal_Compile_Functionclose" shape="rect" coords="347,1232,684,1256"/>
+<area href="../../de/d90/class_smarty___internal___compile___if.html" alt="Smarty_Internal_Compile_If" shape="rect" coords="347,1288,684,1312"/>
+<area href="../../d3/da9/class_smarty___internal___compile___ifclose.html" alt="Smarty_Internal_Compile_Ifclose" shape="rect" coords="347,1344,684,1368"/>
+<area href="../../d3/d91/class_smarty___internal___compile___include.html" alt="Smarty_Internal_Compile_Include" shape="rect" coords="347,1400,684,1424"/>
+<area href="../../dc/d0c/class_smarty___internal___compile___include___php.html" alt="Smarty_Internal_Compile_Include_Php" shape="rect" coords="347,1456,684,1480"/>
+<area href="../../d9/ddf/class_smarty___internal___compile___insert.html" alt="Smarty_Internal_Compile_Insert" shape="rect" coords="347,1512,684,1536"/>
+<area href="../../d3/da7/class_smarty___internal___compile___ldelim.html" alt="Smarty_Internal_Compile_Ldelim" shape="rect" coords="347,1568,684,1592"/>
+<area href="../../dc/d3e/class_smarty___internal___compile___nocache.html" alt="Smarty_Internal_Compile_Nocache" shape="rect" coords="347,1624,684,1648"/>
+<area href="../../db/ded/class_smarty___internal___compile___nocacheclose.html" alt="Smarty_Internal_Compile_Nocacheclose" shape="rect" coords="347,1680,684,1704"/>
+<area href="../../da/d37/class_smarty___internal___compile___private___block___plugin.html" alt="Smarty_Internal_Compile_Private_Block_Plugin" shape="rect" coords="347,1736,684,1760"/>
+<area href="../../db/d3a/class_smarty___internal___compile___private___function___plugin.html" alt="Smarty_Internal_Compile_Private_Function_Plugin" shape="rect" coords="347,1792,684,1816"/>
+<area href="../../d2/d6b/class_smarty___internal___compile___private___modifier.html" alt="Smarty_Internal_Compile_Private_Modifier" shape="rect" coords="347,1848,684,1872"/>
+<area href="../../dd/d40/class_smarty___internal___compile___private___object___block___function.html" alt="Smarty_Internal_Compile_Private_Object_Block_Function" shape="rect" coords="347,1904,684,1928"/>
+<area href="../../d5/d1d/class_smarty___internal___compile___private___object___function.html" alt="Smarty_Internal_Compile_Private_Object_Function" shape="rect" coords="347,1960,684,1984"/>
+<area href="../../d3/d20/class_smarty___internal___compile___private___print___expression.html" alt="Smarty_Internal_Compile_Private_Print_Expression" shape="rect" coords="347,2016,684,2040"/>
+<area href="../../d0/dcb/class_smarty___internal___compile___private___registered___block.html" alt="Smarty_Internal_Compile_Private_Registered_Block" shape="rect" coords="347,2072,684,2096"/>
+<area href="../../d8/dd4/class_smarty___internal___compile___private___registered___function.html" alt="Smarty_Internal_Compile_Private_Registered_Function" shape="rect" coords="347,2128,684,2152"/>
+<area href="../../d3/daa/class_smarty___internal___compile___private___special___variable.html" alt="Smarty_Internal_Compile_Private_Special_Variable" shape="rect" coords="347,2184,684,2208"/>
+<area href="../../dd/df6/class_smarty___internal___compile___rdelim.html" alt="Smarty_Internal_Compile_Rdelim" shape="rect" coords="347,2240,684,2264"/>
+<area href="../../d6/da1/class_smarty___internal___compile___section.html" alt="Smarty_Internal_Compile_Section" shape="rect" coords="347,2296,684,2320"/>
+<area href="../../d1/dce/class_smarty___internal___compile___sectionclose.html" alt="Smarty_Internal_Compile_Sectionclose" shape="rect" coords="347,2352,684,2376"/>
+<area href="../../df/d65/class_smarty___internal___compile___sectionelse.html" alt="Smarty_Internal_Compile_Sectionelse" shape="rect" coords="347,2408,684,2432"/>
+<area href="../../db/dfd/class_smarty___internal___compile___while.html" alt="Smarty_Internal_Compile_While" shape="rect" coords="347,2464,684,2488"/>
+<area href="../../d1/d54/class_smarty___internal___compile___whileclose.html" alt="Smarty_Internal_Compile_Whileclose" shape="rect" coords="347,2520,684,2544"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Veřejné metody</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/class_smarty___internal___compile_base.html#a20b0374eaa418c3f0939c4fc16336867">_get_attributes</a> ($attributes)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/class_smarty___internal___compile_base.html#a4796b80b89a9ad89e3eb9e78161f7007">_open_tag</a> ($open_tag, $data=null)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/class_smarty___internal___compile_base.html#a818554febe97919ecc8eb4ac8652c165">_close_tag</a> ($expected_tag)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Datové položky</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae799507d5461de485f3a618abeecea95"></a><!-- doxytag: member="Smarty_Internal_CompileBase::$required_attributes" ref="ae799507d5461de485f3a618abeecea95" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>$required_attributes</b> = array()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a899d1eb4a6fecbd6ce696adb171c80a4"></a><!-- doxytag: member="Smarty_Internal_CompileBase::$optional_attributes" ref="a899d1eb4a6fecbd6ce696adb171c80a4" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>$optional_attributes</b> = array()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ccb25269c3a92e8c4796c7ef23725e6"></a><!-- doxytag: member="Smarty_Internal_CompileBase::$shorttag_order" ref="a2ccb25269c3a92e8c4796c7ef23725e6" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>$shorttag_order</b> = array()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54756b34496938296f08038f7cf7c46a"></a><!-- doxytag: member="Smarty_Internal_CompileBase::$option_flags" ref="a54756b34496938296f08038f7cf7c46a" args="" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>$option_flags</b> = array('nocache')</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Detailní popis</h2>
+<div class="textblock"><p>This class does extend all internal compile plugins </p>
+</div><hr/><h2>Dokumentace k metodám</h2>
+<a class="anchor" id="a818554febe97919ecc8eb4ac8652c165"></a><!-- doxytag: member="Smarty_Internal_CompileBase::_close_tag" ref="a818554febe97919ecc8eb4ac8652c165" args="($expected_tag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_close_tag </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>expected_tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pop closing tag</p>
+<p>Raise an error if this stack-top doesn't match with expected opening tags</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>$ |string $expected_tag the expected opening tag names </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Návratová hodnota:</b></dt><dd>anytype the opening tag's name or saved data </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a20b0374eaa418c3f0939c4fc16336867"></a><!-- doxytag: member="Smarty_Internal_CompileBase::_get_attributes" ref="a20b0374eaa418c3f0939c4fc16336867" args="($attributes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_get_attributes </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>attributes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function checks if the attributes passed are valid</p>
+<p>The attributes passed for the tag to compile are checked against the list of required and optional attributes. Required attributes must be present. Optional attributes are check against against the corresponding list. The keyword '_any' specifies that any attribute will be accepted as valid</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$attributes</td><td>attributes applied to the tag </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Návratová hodnota:</b></dt><dd>array of mapped attributes for further processing </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4796b80b89a9ad89e3eb9e78161f7007"></a><!-- doxytag: member="Smarty_Internal_CompileBase::_open_tag" ref="a4796b80b89a9ad89e3eb9e78161f7007" args="($open_tag, $data=null)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_open_tag </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>open_tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>data</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Push opening tag name on stack</p>
+<p>Optionally additional data can be saved on stack</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$open_tag</td><td>the opening tag's name </td></tr>
+    <tr><td class="paramtype">anytype</td><td class="paramname">$data</td><td>optional data which shall be saved on stack </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Dokumentace pro tuto třídu byla generována z následujícího souboru:<ul>
+<li>lib/smarty/sysplugins/smarty_internal_compilebase.php</li>
+</ul>
+</div>
+<hr class="footer"/><address class="footer"><small>Generováno po 9. kvě 2011 15.53:40 pro projekt babyka programem&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>
