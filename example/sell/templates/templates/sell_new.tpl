@@ -1,10 +1,11 @@
-<form method="post" action="">
-<table border="1">
+<div style="float:none"><div class="right"><input type="button" value="Skryj formular" onClick="toggle('new-post-table', this)"/></div></div>
+<form method="post" action="" id="new-post-table">
+<table border="0">
 	<input type="hidden" name="app" value="sell" />
 	<input type="hidden" name="method" value="post_new_" />
 	<tr id="post-new-edit">
 		<td class="s85">
-			<img class="image-preview" src="/img/default.png" alt="Default image" />
+			<img class="image-preview" src="/img/default.png" alt="Default image" onClick="ImageUploader()" />
 		</td>
 		<td class="hleft">
 			<label for="frm-title"><b>Titulek </b></label><input type="text" id="frm-title" class="s350"  size="25" name="title" /><br />
