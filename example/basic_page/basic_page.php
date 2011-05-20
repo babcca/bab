@@ -4,7 +4,7 @@
  *	Jakoby staticke stranky (co odkaz to stranka [template]).
  *	[pridat predavani dat z formulare
  */
-class basic_page : IndexEntry {	
+class basic_page extends IndexEntry {	
 	public function __construct() {
 		parrent::__construct('basic_page');
 	}
