@@ -10,12 +10,18 @@ function AjaxLoader() {
 	AjaxLoader.prototype.getPost = function(config) {
 		var xhr = this.getObject();
 		xhr.onreadystatechange = function() {
+			var loader = document.getElementById("loader");
 			if (xhr.readyState == 4) {
 				if (xhr.status == 200) {
+					loader.innerHTML = "";
+					loader.style.display = "none";
 					config.succes(xhr.responseText);
 				} else {
 					console.log("Error: " + xhr.status);
 				}
+			} else {
+				loader.style.display = "block";
+				loader.innerHTML = '<center><img src="/img/ajax-loader.gif" /></center>';
 			}
 		}
 		var url = "/ajax.php?app="+config.app+"&method="+config.method;
@@ -36,6 +42,7 @@ function TabBox(tabs_name) {
 		var tab_id = "content_"+this.last_active;
 		var tab = document.getElementById(tab_id);
 		if (tab != null) {
+			tab.innerHTML = '';
 			tab.style.display = "none";
 		} else {
 			console.log("Failded deactive tab "+tab_id);
@@ -67,7 +74,7 @@ function TabBox(tabs_name) {
 			var link = document.getElementById("tab_"+link_id);
 			var callback = this.tabs[i].callback;
 			link.onclick = function () {
-				caller.setActive(this.id.substring(4), callback);
+				caller.setActive(this.id.substring(4));
 			};
 		}
 	}
