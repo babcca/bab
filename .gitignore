@@ -1,3 +1,3 @@
 # template soubory
-*.tpl
-*.swp
+[*.tpl].php
+*.[swp]
