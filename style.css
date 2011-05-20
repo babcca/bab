@@ -2,28 +2,38 @@ body {
 	width: 700px;
 }
 
+.inline {
+	display: inline;
+}
+.right {
+	float: right;
+}
+
 #tab-box {
 	width: 100%;
 	margin: 10px 10px 10px 0px;
 }
-
-#tab-navigation {
+.tab-menu {
+	height: 25px;
+}
+.tab-navigation {
 	margin: 0;
 	padding: 0;
-	height: 25px;
+	height: 100%;
 	line-height: 24px;
 }
 
-#tab-navigation li {
+.tab-navigation li {
 	float: left;
 	margin: 0;
 	padding: 0 15px;
 	border: 1px #000 solid;
 	border-bottom: none;
-	height: 24px;
+	height: 100%;
 	width: auto;
 	text-align: center;
 	background: #fff;
+	list-style-type: none;
 }
 
 #tab-box-content {
