@@ -1,10 +1,12 @@
 <?php
-
-class basic_page {
-	private $render;
-	
+/**
+ *	Zakladni kostra jednoduche stranky
+ *	Jakoby staticke stranky (co odkaz to stranka [template]).
+ *	[pridat predavani dat z formulare
+ */
+class basic_page : IndexEntry {	
 	public function __construct() {
-		$this->render = new Render('basic_page');
+		parrent::__construct('basic_page');
 	}
 
 	public function uvod() {
@@ -16,6 +18,5 @@ class basic_page {
 		Enviroment::set_title("Popis projektu");
 		return $this->render->show("popis.tpl");
 	}
-
 }
 ?>
