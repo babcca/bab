@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/sell_style.css" media="screen" />
 	<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
 	<script src="/tabs.js"></script>
+	<script src="/script.js"></script>
 	<title>{$title}</title>
 </head>
 <body onLoad="tabs.setCallback(tabs);">
@@ -20,9 +21,10 @@
 			</ul>
 		</div>
 		<div id="tab-box-content">
-			<div id="content_prodam" class="tab-content">{$content}</div>
-			<div id="content_koupim" class="tab-content"><i>{$content}</i></div>
-			<div id="content_me_prispevky" class="tab-content"><b>{$content}</b></div>
+			<div id="loader"></div>
+			<div id="content_prodam" class="tab-content"></div>
+			<div id="content_koupim" class="tab-content"></div>
+			<div id="content_me_prispevky" class="tab-content"></b></div>
 			<div id="content_podminky" class="tab-content">{$terms}</div>
 		</div>
 	</div>
