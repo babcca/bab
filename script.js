@@ -29,12 +29,12 @@ function Dialog(id) {
 		this.dialog_obj.style.position = 'absolute';
 		this.dialog_obj.style.left = dialog_data.pos.x+'px';
 		this.dialog_obj.style.top = dialog_data.pos.y+'px';
-		this.dialog_obj.style.backgroud-color = '#F0F';
+		this.dialog_obj.style.backgroudColor = '#F0F';
 		this.dialog_obj.style.border = '1px solid #0F0';
 		var title = this.dialog_obj.createElement('div');
 		title.style.height = "25px";
 		title.style.width = "100%";
-		title.style.background-color = "#0F0";
+		title.style.backgroundColor = "#0F0";
 	}
 	Dialog.prototype.show = function () {
 		this.dialog_obj.innerHTML = dialog_data.content;
