@@ -9,4 +9,3 @@ Main::$process_manager->register_view("index", 'popis');
 Main::$process_manager->register_view("index", "uvod");
 
 ?>
-
