@@ -26,7 +26,7 @@ class ProcessManager {
 		if (($p_app != null) && ($p_mt != null)) {
 			return $this->process->process($p_app, $p_mt, "post");
 		}
-		return null;
+		return PROCESS_NOTHING;
 	}
 	
 	/**

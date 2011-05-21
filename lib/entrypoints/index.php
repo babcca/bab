@@ -11,7 +11,7 @@ class IndexEntry implements IEntrypoint {
 	public function main($charset) {
 		header("Content-type: text/html; charset=$charset");
 		$content = Main::$process_manager->process(false);
-		if (!$content) {
+    if (!$content) {
 			return $this->on_error($charset);
 		} else {
 			return $this->on_succes($charset, $content);

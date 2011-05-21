@@ -4,6 +4,8 @@ define("UNKNOWN_APP", 1);
 define("NEED_LOGIN", 2);
 define("UNKNOWN_METHOD", 3);
 define("EXCEPTED_PARAM", 4);
+define("PROCESS_DONE", 6);
+define("PROCESS_NOTHING", 5);
 /** 
  *	Spoustec volanych funkci, stara se o spravne volani metod
  *	s jejich parametry a kontrolu prav k volani.
