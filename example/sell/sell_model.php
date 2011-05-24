@@ -9,7 +9,7 @@ class sell_model {
 	protected function get_sell_list($offset, $count, $user_id = -1) {
 		$sql = "SELECT * FROM sell WHERE active = 1";
 		if ($user_id != -1) $sql .= "AND user_id = $user_id";
-		$sql .= " ORDER BY time DESC";
+		$sql .= " ORDER BY time DESC LIMIT $offset, $count";
 		return $this->db->query($sql)->fetch_all();
 	}
 
@@ -40,6 +40,12 @@ class sell_model {
 			$ret["update"] = true;
 		}
 		return json_encode($ret);
+	}
+
+	public function post_count() {
+		$count = $this->db->query("SELECT COUNT(*) FROM sell")->fetch();
+		return $count[0];
+
 	}
 }
 

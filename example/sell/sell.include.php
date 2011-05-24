@@ -5,7 +5,7 @@ require_once(dirname(__file__).'/sell.php');
 
 
 /** pohledy pro prodej */
-Main::$process_manager->register_view("sell", "post_list", array(), array("offset"=>0));
+Main::$process_manager->register_view("sell", "post_list", array(), array("offset"=>0, "count"=>4));
 
 /** metody pro prodej */
 Main::$process_manager->register_process("sell", "post_new_", array("title", "description", "price"), array("image"=>"/img/default.png"));

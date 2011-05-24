@@ -15,6 +15,14 @@
 	{/foreach}
 </table>
 <div id="sell-tab-offset">
-	<a href="{make_url app=sell method=post_list argm=['offset'=>12]}">1</a>
+	{section name=i start=0 loop=$count step=$step}
+		{if $offset eq $smarty.section.i.index}
+			<b>{$smarty.section.i.iteration}</b>
+		{else}
+			<a href="{make_url app=sell method=post_list argm=['offset'=>$smarty.section.i.index]}">
+				{($smarty.section.i.index+1) / $step}
+			</a>
+		{/if}
+	{/section}
 </div>
 </div>
