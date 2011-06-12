@@ -1,1 +1,9 @@
+Je dobre psat pohledy v kodu (obcas citelny kod) [Pridat moznost zapsat do renderu radek k textu (fronta, renderovat postupne)]
+Nebo v templatu? => Oboji, hodi se to :).
+
+Zavislost aplikaci, automaticke includovani. (Prepsat loader aplikaci).
+
+Udelat registraci aplikace jako u djanga (regexp na url)
+
+Cachovani view? :) [Render]
 
